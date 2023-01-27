@@ -1,0 +1,49 @@
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(194, 194, 194);
+    
+}
+
+header {
+    height: 80px;
+    font-family: 'Segoe UI';
+    font-size: xx-large;
+    border-radius: 5px;
+    border: 5px solid red;
+    grid-column: 1/12;
+}
+
+ul {
+    overflow: hidden;
+    cursor: pointer;
+    display: inline;
+
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    padding-left: 10px;
+
+}
+
+header a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+}
+
+header a:hover:not(.active) {
+    background-color: #99D98C;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+header a.active {
+    background-color: #52B69A;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
