@@ -1,0 +1,109 @@
+.header {
+    height: 40px;
+    background-color: rgb(194, 194, 194);
+    font-family: 'Segoe UI';
+    border-radius: 5px;
+    border: 5px solid red;
+    
+}
+
+ul {
+    overflow: hidden;
+    cursor: pointer;
+    display: inline;
+
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    padding-left: 10px;
+
+}
+
+header a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+}
+
+header a:hover:not(.active) {
+    background-color: #99D98C;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+header a.active {
+    background-color: #52B69A;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(194, 194, 194);
+
+}
+
+.image {
+    text-align: center;
+    border: 5px solid red;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'left middle middle middle middle right'
+        'footer footer footer footer footer footer';
+    /* grid-column-gap: 10px; */
+}
+
+.left,
+.middle,
+.right {
+    border: 5px solid red;
+    width: min-content;
+
+}
+
+
+.left {
+    grid-area: left;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 150px;
+    color: #168AAD;
+    height: 350px;
+}
+
+
+.middle {
+    grid-area: middle;
+
+
+}
+
+
+.right {
+    grid-area: right;
+    background-color: #184E77;
+
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other 
+  @media (max-width: 600px) {
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header header header' 
+        'left left left left left left' 
+        'middle middle middle middle middle middle' 
+        'right right right right right right' 
+        'footer footer footer footer footer footer';
+    }
+    
+  }*/
