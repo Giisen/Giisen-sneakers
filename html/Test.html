@@ -25,7 +25,34 @@
 
 <body>
 
-    <div class="grid-container">
+    <h1>My Favorite sneakers</h1>
+    <ul id="fruits"></ul>
+
+    <script>
+
+        var sneakers = [];
+        sneakers[0] = new Image(512, 512);
+        sneakers[0].scr = "/img/sneaker1.png";
+
+        sneakers[1] = new Image(512, 512);
+        sneakers[1].scr = "/img/sneaker2.png";
+
+        sneakers[2] = new Image(512, 512);
+        sneakers[2].scr = "/img/sneaker3.png";
+
+
+        // get the <ul> element
+        let list = document.getElementById("sneakers");
+
+        // iterate over the array and add each fruit as a new <li> element
+        for (let i = 0; i < sneakers.length; i++) {
+            let item = document.createElement("li");
+            item.innerHTML = sneakers[i];
+            list.appendChild(item);
+        }
+    </script>
+
+    <!-- <div class="grid-container">
         
         <div class="left"><img src="/img/splash1.png" height="1200px" alt="splashimg">
             <a>Giisen sneakers</a>
@@ -38,7 +65,7 @@
 
     </div>
 
-
+ -->
 
 </body>
 
