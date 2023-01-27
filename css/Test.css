@@ -1,10 +1,9 @@
-header {
+.header {
     height: 80px;
+    background-color: rgb(194, 194, 194);
     font-family: 'Segoe UI';
-    font-size: xx-large;
     border-radius: 5px;
     /* border: 5px solid red; */
-    grid-column: 1/12;
 }
 
 ul {
@@ -26,6 +25,7 @@ header a {
     color: black;
     padding: 5px;
     text-decoration: none;
+    font-size: xx-large;
 }
 
 header a:hover:not(.active) {
@@ -42,72 +42,41 @@ header a.active {
     padding: 5px;
 }
 
-/* .container{
-   width: 700px; 
-    background-color: #52B69A; 
-    padding: 20px;
-    margin-top: 20px;
-    /* border: 5px solid red; 
-} */
-.box {
-    width: 700px;
-    height: 300px;
-    background: #52B69A;
-    grid-column: 3;
-    margin: 20px;
-}
-
 body {
-    display: grid;
-    grid-template-columns: 300px 300px 700px 100px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(194, 194, 194);
 
 }
-body h1{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-body p{
-    font-size: large;
-}
 
-/*
 .image {
     text-align: center;
-    border: 5px solid red;
-}
-
-
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        'header header header header header header'
-        'left middle middle middle middle right'
-        'footer footer footer footer footer footer';
-    grid-column-gap: 10px;
-}
-
-.left,
-.middle,
-.right {
-    border: 5px solid red;
-    width: min-content;
-
+    /* border: 5px solid red; */
 }
 
 
 .left {
-    grid-area: left;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 150px;
     color: #168AAD;
     height: 350px;
+    width: 500px;
+
 }
 
+.left a {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.left img {
+    size: 20%;
+}
 
 .middle {
     grid-area: middle;
-
+    width: auto;
 
 }
 
@@ -116,7 +85,7 @@ body p{
     grid-area: right;
     background-color: #184E77;
 
-} */
+}
 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other 
