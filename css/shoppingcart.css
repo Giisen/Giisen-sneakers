@@ -68,7 +68,6 @@ a {
     padding: 5px;
 }
 
-
 .cart {
     position: relative;
     font-size: 30px;
@@ -86,50 +85,4 @@ a {
     background-color: rgb(247, 167, 230);
     border-radius: 5px;
     padding: 3px;
-}
-
-.shop {
-    display: grid;
-    grid-template-columns: repeat(4, 225px);
-    gap: 25px;
-    justify-content: center;
-}
-
-@media (max-width:1000px) {
-    .shop {
-        grid-template-columns: repeat(2, 225px);
-    }
-}
-
-@media (max-width:500px) {
-    .shop {
-        grid-template-columns: repeat(1, 225px);
-    }
-}
-
-.item {
-    border: 5px solid rgb(247, 167, 230);
-    border-radius: 10px;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    gap: 14px;
-}
-
-.price-quantity {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: bolder;
 }
