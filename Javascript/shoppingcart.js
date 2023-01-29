@@ -1,3 +1,6 @@
+let label = document.getElementById('label');
+let shopC = document.getElementById('shopping-cart');
+
 let shoppingCart = JSON.parse(localStorage.getItem("localStorageData")) || [];
 
 let totalItemsInCart = () => {
@@ -6,3 +9,13 @@ let totalItemsInCart = () => {
 
 };
 totalItemsInCart();
+
+let generateCartItems = () => {
+    if (shoppingCart.length !== 0) {
+        console.log("Cart not empty");
+    }
+    else {
+        console.log("Empty");
+    }
+};
+generateCartItems();

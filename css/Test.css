@@ -6,6 +6,7 @@
 
 body {
     font-family: sans-serif;
+    background-color: rgb(194, 194, 194);
 
 }
 
@@ -54,7 +55,7 @@ a {
 }
 
 
-.navbar a:hover:not(.active) {
+.navbar .menu a:hover:not(.active) {
     background-color: #99D98C;
     color: white;
     border-radius: 5px;
@@ -67,6 +68,7 @@ a {
     border-radius: 5px;
     padding: 5px;
 }
+
 
 
 .cart {
@@ -87,28 +89,39 @@ a {
     border-radius: 5px;
     padding: 3px;
 }
+.testbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.testbody .left {
+    position: absolute;
+
+}
 
 .shop {
+    background-color: rgb(194, 194, 194);
     display: grid;
     grid-template-columns: repeat(4, 225px);
     gap: 25px;
     justify-content: center;
+    z-index: 1;
 }
 
-@media (max-width:1000px) {
+@media (max-width:800px) {
     .shop {
         grid-template-columns: repeat(2, 225px);
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .shop {
         grid-template-columns: repeat(1, 225px);
     }
 }
 
 .item {
-    border: 5px solid rgb(247, 167, 230);
+    border: 5px solid #2b841a;
     border-radius: 10px;
 }
 
