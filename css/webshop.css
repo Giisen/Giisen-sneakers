@@ -1,10 +1,15 @@
-.container{
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(194, 194, 194);
-    
+    padding: 25px 60px;
 }
 
 header {
+    display: flex;
+    flex-direction: row;
     height: 80px;
     font-family: 'Segoe UI';
     font-size: xx-large;
