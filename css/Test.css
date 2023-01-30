@@ -89,14 +89,16 @@ a {
     border-radius: 5px;
     padding: 3px;
 }
+
 .testbody {
     display: flex;
     flex-direction: column;
+   
 }
 
 .testbody .left {
     position: absolute;
-
+    width:600px;
 }
 
 .shop {
@@ -105,7 +107,7 @@ a {
     grid-template-columns: repeat(4, 225px);
     gap: 25px;
     justify-content: center;
-    z-index: 1;
+    
 }
 
 @media (max-width:800px) {
