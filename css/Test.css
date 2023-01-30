@@ -3,6 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media (max-width:800px) {
+    .shop {
+        grid-template-columns: repeat(2, 225px);
+    }
+}
+
+@media (max-width:600px) {
+    .shop {
+        grid-template-columns: repeat(1, 225px);
+    }
+}
 
 body {
     font-family: sans-serif;
@@ -48,7 +59,7 @@ ul {
     display: inline;
 }
 
-a {
+.navbar a {
     padding: 10px;
     text-decoration: none;
     color: black;
@@ -110,17 +121,7 @@ a {
     
 }
 
-@media (max-width:800px) {
-    .shop {
-        grid-template-columns: repeat(2, 225px);
-    }
-}
 
-@media (max-width:600px) {
-    .shop {
-        grid-template-columns: repeat(1, 225px);
-    }
-}
 
 .item {
     border: 5px solid #2b841a;
