@@ -8,23 +8,25 @@ let generateShop = () => {
       let { id, name, price, decription, img } = x;
       let search = shoppingCart.find((x) => x.id === id) || [];
       return `
-    <div id=product-id-${x.id} class="item">
-    <img class="shopImg" width="220px" height="217px"src=${x.img} alt=${x.name}>
-    <div class="details">
-        <h3>${x.name}</h3>
-        <p>${x.decription}</p>
-        <div class="price-quantity">
-            <h2>${x.price} kr</h2>
-            <div class="buttons">
-                <i onclick="removeOneItem(${x.id})" class="bi bi-dash-lg"></i>
-                <div id=${x.id} class="quantity">${
+      <div id=product-id-${x.id} class="item">
+      <button id="myBtn">
+      <img width="215" src=${x.img} alt=${x.name}>
+      </button>
+       <div class="details">
+       <h3>${x.name}</h3>
+       <p>${x.decription}</p>
+       <div class="price-quantity">
+       <h2>${x.price} kr</h2>
+       <div class="buttons">
+       <i onclick="removeOneItem(${x.id})" class="bi bi-dash-lg"></i>
+       <div id=${x.id} class="quantity">${
         search.item === undefined ? 0 : search.item
       }</div>
-                <i onclick="addOneItem(${x.id})" class="bi bi-plus-lg"></i>
-            </div>
+        <i onclick="addOneItem(${x.id})" class="bi bi-plus-lg"></i>
         </div>
-    </div>
-</div>
+        </div>
+        </div>
+        </div>
     `;
     })
     .join(""));

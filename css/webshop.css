@@ -1,21 +1,19 @@
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(194, 194, 194);
-    padding: 25px 60px;
-}
 
-header {
+body{
+background-color: rgb(194, 194, 194);
+
+} 
+
+.container-fluid{
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     height: 80px;
     font-family: 'Segoe UI';
     font-size: xx-large;
     border-radius: 5px;
-    border: 5px solid red;
-    grid-column: 1/12;
+    margin: 15px 0px 15px 0px;
+   
+        
 }
 
 ul {
@@ -29,26 +27,141 @@ li {
     list-style-type: none;
     float: left;
     padding-left: 10px;
-
 }
 
-header a {
+.container-fluid a {
     display: block;
     color: black;
     padding: 5px;
     text-decoration: none;
+    
 }
 
-header a:hover:not(.active) {
+.container-fluid a:hover:not(.active) {
     background-color: #99D98C;
     color: white;
     border-radius: 5px;
     padding: 5px;
 }
 
-header a.active {
+.container-fluid .menu a.active {
     background-color: #52B69A;
     color: white;
     border-radius: 5px;
     padding: 5px;
+    
+}
+
+.cart {
+    position: relative;
+    font-size: 30px;
+    padding: 3px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 20px;
+    background-color: rgb(247, 167, 230);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+
+.shop {
+    /* background-color: rgb(194, 194, 194); */
+    display: grid;
+    grid-template-columns: repeat(3, 230px);
+    gap: 25px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+
+.item {
+    border: 5px solid #026e76;
+    border-radius: 10px;
+}
+
+.item img{
+    width: 100%;
+    border: none;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 14px;
+}
+
+.price-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+
+
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid pink;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
