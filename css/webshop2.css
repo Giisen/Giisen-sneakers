@@ -4,7 +4,7 @@ background-color: rgb(194, 194, 194);
 
 } 
 
-.container-fluid{
+.blaj{
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -12,8 +12,6 @@ background-color: rgb(194, 194, 194);
     font-size: xx-large;
     border-radius: 5px;
     margin: 15px 0px 15px 0px;
-   
-        
 }
 
 ul {
