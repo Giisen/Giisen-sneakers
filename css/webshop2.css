@@ -74,8 +74,7 @@ li {
 
 
 .shop {
-    /* background-color: rgb(194, 194, 194); */
-    display: grid;
+     display: grid;
     grid-template-columns: repeat(3, 230px);
     gap: 25px;
     justify-content: center;
@@ -140,18 +139,18 @@ li {
     /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
-    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid pink;
     width: 80%;
-    /* Could be more or less, depending on screen size */
+    cursor: pointer;
+    
 }
 
-/* The Close Button */
+
 .close {
     color: #aaa;
     float: right;

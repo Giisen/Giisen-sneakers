@@ -1,43 +1,9 @@
-let shop = document.getElementById("shop");
-
 let shoppingCart = JSON.parse(localStorage.getItem("localStorageData")) || [];
-
-let generateShop = () => {
-  return (shop.innerHTML = shopItemsData
-    .map((x) => {
-      let { id, name, price, decription, img } = x;
-      let search = shoppingCart.find((x) => x.id === id) || [];
-      return `
-      <div id=product-id-${x.id} class="item">
-      <button id="myBtn">
-      <img width="215" src=${x.img} alt=${x.name}>
-      </button>
-       <div class="details">
-       <h3>${x.name}</h3>
-       <p>${x.decription}</p>
-       <div class="price-quantity">
-       <h2>${x.price} kr</h2>
-       <div class="buttons">
-       <i onclick="removeOneItem(${x.id})" class="bi bi-dash-lg"></i>
-       <div id=${x.id} class="quantity">${
-        search.item === undefined ? 0 : search.item
-      }</div>
-        <i onclick="addOneItem(${x.id})" class="bi bi-plus-lg"></i>
-        </div>
-        </div>
-        </div>
-        </div>
-    `;
-    })
-    .join(""));
-};
-
-generateShop();
 
 let addOneItem = (id) => {
   let selectedItem = id;
   let search = shoppingCart.find((x) => x.id == selectedItem.id);
-
+  console.log(selectedItem);
   if (search === undefined) {
     shoppingCart.push({
       id: selectedItem.id,
@@ -79,18 +45,29 @@ let totalItemsInCart = () => {
 };
 totalItemsInCart();
 
-// modal
-var modal = document.getElementById("myModal");
+// const buttons = document.getElementsByTagName("button");
+// const result = document.getElementById("result");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// const buttonPressed = (e) => {
+//   console.log(e.target.id);
+// };
+
+// for (let button of buttons) {
+//   button.addEventListener("click", buttonPressed);
+// }
+
+const modal = document.getElementById("myModal");
+
+const btn = document.getElementById("sneaker1");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
+  selectedId = btn.id;
+  console.log("selectedid......." + selectedId);
 };
 
 // When the user clicks on <span> (x), close the modal
@@ -104,3 +81,38 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+function getItemInfo() {
+  const search = shopItemsData.find((x) => x.id === "sneaker1") || [];
+
+  return `
+      <div id=product-id-${search.id} class="item">
+        
+        <div class="details">
+          <h3>${search.name}</h3>
+          <p>${search.decription}</p>
+        </div>
+        
+        
+        <div class="price-quantity">
+                <h2>${search.price} kr</h2>
+        </div>
+
+
+        <div class="buttons">
+          <i onclick="removeOneItem(${search.id})" class="bi bi-dash-lg"></i>
+          
+          <div id=${search.id} class="quantity">
+            ${search.item === undefined ? 0 : search.item}
+          </div>
+          
+          <i onclick="addOneItem(${search.id})" class="bi bi-plus-lg"></i>
+          
+        </div>
+      
+      
+      </div>
+    `;
+}
+
+document.getElementById("modal-text").innerHTML = getItemInfo();
