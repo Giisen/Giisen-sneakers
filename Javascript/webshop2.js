@@ -45,24 +45,20 @@ let totalItemsInCart = () => {
 };
 totalItemsInCart();
 
-const lista = document.getElementById("listaprodukter");
-
-for (const produkter of shopItemsData) {
-  const node = document.createElement("li");
-  node.onclick = () => {
-    getItemInfo(produkter.id);
-  };
-  const textnode = document.createTextNode(produkter.name);
-  node.appendChild(textnode);
-
-  document.getElementById("listaprodukter").appendChild(node);
-  console.log(produkter.name);
-}
+// for (const produkter of shopItemsData) {
+//   const node = document.createElement("li");
+//   node.onclick = () => {
+//     getItemInfo(produkter.id);
+//   };
+//   const textnode = document.createTextNode(produkter.name);
+//   node.appendChild(textnode);
+//   document.getElementById("listaprodukter").appendChild(node);
+// }
 
 function getItemInfo(id) {
   console.log(id);
   const search = shopItemsData.find((x) => x.id === id) || [];
-  console.log(search.price);
+
   const modalText = document.getElementById("modal-text");
   modalText.innerHTML = `
       <div id=product-id-${search.id} class="item">
@@ -109,3 +105,34 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+let products = document.getElementById("products");
+
+let getallproducts = () => {
+  return (products.innerHTML = shopItemsData
+    .map((x) => {
+      const node = document.createElement("li");
+      node.onclick = () => {
+        getItemInfo(x.id);
+      };
+      const textnode = document.createTextNode(x.name);
+      node.appendChild(textnode);
+      document.getElementById("listaprodukter").appendChild(node);
+
+      return `
+    <div id=product-id-${x.id} class="item" >
+    
+            <img class="shopImg" width="220px" height="217px"src=${x.img} alt=${x.name} onclick="getItemInfo(${x.id})" >
+            
+        <div class="details">
+            <h3>${x.name}</h3>
+            <h2>${x.price} kr</h2>
+        </div>
+    </div>
+    
+    `;
+    })
+    .join(""));
+};
+
+getallproducts();
