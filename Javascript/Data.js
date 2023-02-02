@@ -12,7 +12,7 @@ const shopItemsData = [
     name: "Rosie",
     price: 1899,
     decription:
-      "The romance is absolute, you can ignore it. Embed your self in soft rose pedles.",
+      "The romance is absolute, you can't ignore it. Embed your self in soft rose pedles.",
     img: "/img/Sneaker2.webp",
   },
   {
