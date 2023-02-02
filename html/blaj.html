@@ -32,23 +32,30 @@
     ></script>
     <script defer src="/Javascript/Data.js"></script>
     <script defer src="/Javascript/blaj.js"></script>
+     <link rel="stylesheet" href="/css/blaj.css" />
   </head>
 
   <body class="bg-secondary">
     <header>
       <ul class="nav navbar-dark bg-dark justify-content-start">
         <li class="nav-item">
-          <a
-            class="nav-link text-info fw-bold"
-            href="/index.html"
-            aria-current="page"
-            >Home</a
-          >
+          <a class="nav-link text-info fw-bold" href="/index.html" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active text-bg-info fw-bold" href="#">shoppen</a>
         </li>
+        
+        <li class="nav-item"> 
+          <a class="nav-link text-info fw-bold" href="/html/shoppingcart.html" aria-current="page"> Cart</a>
+          </li>
+          <li>
+            <a class="nav-link text-info fw-bold cartAmount" id="cartAmount" >0</a>    
+        </li>
+        
+    </div>
       </ul>
+
+        
     </header>
 
     <main>
@@ -64,6 +71,13 @@
         </div>
       </div>
     </main>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-text"></div>
+      </div>
+    </div>
     <footer>
       <!-- place footer here -->
     </footer>
