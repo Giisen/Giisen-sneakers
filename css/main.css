@@ -35,20 +35,15 @@ header a:hover:not(.active) {
     border-radius: 5px;
     padding: 5px;
 }
-
+*/
 header a.active {
     background-color: #52B69A;
     color: white;
     border-radius: 5px;
     padding: 5px;
 }
-*/
-body {
-    
-    background-color: rgb(194, 194, 194);
-    border: 5px solid red;
 
-}
+
 
 .left-column{
   border:5px solid red;

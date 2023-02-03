@@ -1,19 +1,19 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
     font-family: sans-serif;
 background-color: rgb(194, 194, 194);
-}
+} */
 
-.item {
+/* .item {
     cursor: pointer;
-}
+} */
 
-.navbar {
+/* .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +24,7 @@ background-color: rgb(194, 194, 194);
     font-family: 'Segoe UI';
     border-radius: 5px;
 
-}
+} */
 
 
 /* @media (max-width:500px) {
@@ -33,7 +33,7 @@ background-color: rgb(194, 194, 194);
     }
 } */
 
-.menu {
+/* .menu {
     font-size: 30px;
     display: flex;
     flex-direction: row;
@@ -66,18 +66,18 @@ a {
     color: white;
     border-radius: 5px;
     padding: 5px;
-}
+} */
 
-.cart {
+/* .cart {
     position: relative;
     font-size: 30px;
     padding: 3px;
     background-color: aquamarine;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
-.cartAmount {
+/* .cartAmount {
     position: absolute;
     top: -15px;
     right: -10px;
@@ -85,14 +85,14 @@ a {
     background-color: rgb(247, 167, 230);
     border-radius: 5px;
     padding: 3px;
-}
+} */
 
 .text-center{
     text-align: center;
     margin-bottom: 20px;
 }
 
-.HomeButton{
+/* .HomeButton{
     background-color: #99D98C;
     color: white;
     font-size: xx-large;
@@ -101,7 +101,7 @@ a {
     border-radius: 5px;
     margin-top: 15px;
     cursor: pointer;
-}
+} */
 
 .shopping-cart{
     display: grid;

@@ -8,10 +8,13 @@ const modal = document.getElementById("myModal");
 let addOneItem = (id) => {
   let selectedItem = id;
   let search = shoppingCart.find((x) => x.id == selectedItem.id);
-
+  let sneaker = proddata.find((x) => x.id == selectedItem.id);
   if (search === undefined) {
     shoppingCart.push({
       id: selectedItem.id,
+      price: sneaker.price,
+      name: sneaker.name,
+      img: sneaker.img,
       item: 1,
     });
   } else {
@@ -46,7 +49,7 @@ let update = (id) => {
 let totalItemsInCart = () => {
   let cartTotal = document.getElementById("cartAmount");
   cartTotal.innerHTML =
-    shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0) + " " + "items";
+    "Items" + " " + shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0);
 };
 totalItemsInCart();
 
@@ -59,29 +62,25 @@ for (const prod of proddata) {
   const cardText = document.createElement("div");
   const cardPrice = document.createElement("div");
   const cardfooter = document.createElement("div");
-  // const trueButton = document.createElement("button");
 
   //Styla Element
-  card.classList.add("card", "mb-2");
+  card.classList.add("card", "mb-2", "cursor-pointer");
   cardheader.classList.add("card-header", "bg-info", "fw-bold");
-  cardbody.classList.add("card-body", "bg-dark", "text-warning");
+  cardbody.classList.add("card-body");
   cardText.classList.add("card-text");
   cardPrice.classList.add("card-price");
-  cardfooter.classList.add("card-footer", "bg-info", "fw-bold");
-  // trueButton.classList.add("btn", "border", "border-2", "mx-1", "btn-success");
+  cardfooter.classList.add("card-footer", "fw-light");
 
   // innehåll i element
 
   cardheader.innerText = prod.name;
   cardPrice.innerText = prod.price + " " + "kr";
   cardImg.src = prod.img;
-  // cardText.innerText = prod.decription;
-  // trueButton.innerText = "Click Me!";
 
   //sätta event på element
   card.onclick = () => {
     modal.style.display = "block";
-    getItemInfo(prod.id);
+    getItemInfo(prod.id, prod.name);
   };
 
   //Lägg till element i dom
@@ -106,9 +105,12 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+function selectedName(name) {
+  console.log(name);
+  return name;
+}
 
 function getItemInfo(id) {
-  console.log(id);
   const search = shopItemsData.find((x) => x.id === id) || [];
 
   const modalText = document.getElementById("modal-text");
@@ -132,7 +134,6 @@ function getItemInfo(id) {
           </div>
 
           <i onclick="addOneItem(${search.id})" class="bi bi-plus-lg">+</i>
-
         </div>
 
       </div>
