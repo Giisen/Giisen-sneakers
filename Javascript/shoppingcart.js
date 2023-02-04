@@ -14,9 +14,11 @@ const totalItemsInCart = () => {
 totalItemsInCart();
 
 function generateCart() {
-  while (shoppingCart.childElementCount > 0) {
-    shoppingCart.children[0].remove();
-  }
+  // while (shoppingCart.length > 0) {
+  //   shoppingCart.children[0].remove();
+  // }
+
+  console.log(shoppingCart.children);
 
   for (const prod of shoppingCart) {
     //Skapa element
@@ -71,70 +73,6 @@ function generateCart() {
 }
 generateCart();
 
-// let generateCartItems = () => {
-//   if (shoppingCart.length !== 0) {
-//     return (shopC.innerHTML = shoppingCart
-//       .map((x) => {
-//         const { id, item } = x;
-//         const search = shopItemsData.find((y) => y.id === id) || [];
-//         return `
-//          <div class="cart-item">
-//          <i onclick="removeItem(${id})"class="fw-bold">X</i>
-
-//             <img width="100px"src="${search.img}" alt="image"/>
-//          <div class="details">
-
-//         <div class="title-price-x">
-
-//             <h4 class="title-price">
-//             <p>${search.name}</p>
-//             <p class="card-price">${search.price} kr</p>
-//             </h4>
-//         </div>
-
-//         <div class="buttons">
-//             <i onclick="removeOneItem(${id})" class="bi bi-dash-lg">-</i>
-//             <div id=${id} class="quantity">${item}</div>
-//             <i onclick="addOneItem(${id})" class="bi bi-plus-lg">+</i>
-//         </div>
-
-//             <h3 class="card-totalprice">${item * search.price} kr</h3>
-//         </div>
-//     </div>
-//             `;
-//       })
-//       .join(""));
-//   } else {
-//     shopC.innerHTML = ``;
-//     label.innerHTML = `
-//         <h2> Shoppingcart is empty</h2>
-//         <a href="/index.html">
-//         <button class="HomeButton">Home</button>
-//         </a>
-//         `;
-//   }
-// };
-// generateCartItems();
-
-function addItemToCart(id) {
-  console.log(id);
-  let sneaker = shopItemsData.find((x) => x.id == id);
-  let cart = shopItemsData.find((x) => x.id == id);
-  console.log(cart);
-  if (cart === undefined) {
-    shoppingCart.push({
-      id: sneaker.id,
-      price: sneaker.price,
-      name: sneaker.name,
-      img: sneaker.img,
-      item: 1,
-    });
-  } else {
-    sneaker.item += 1;
-  }
-  localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
-}
-
 let addOneItem = (id) => {
   let selectedItem = id;
   let search = shoppingCart.find((x) => x.id == selectedItem);
@@ -150,8 +88,8 @@ let addOneItem = (id) => {
   } else {
     search.item += 1;
   }
-  generateCart();
   update(selectedItem);
+  generateCart();
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
@@ -173,20 +111,11 @@ let removeOneItem = (id) => {
 
 const update = (id) => {
   let search = shoppingCart.find((x) => x.id == id);
-
-  //document.getElementById("cardItems").innerHTML = search.item;
+  location.reload();
+  //document.getElementById(search.id).innerHTML = search.item;
   totalItemsInCart();
   TotalCartAmount();
 };
-
-// const removeItem = (id) => {
-//   let selectedItem = id;
-//   shoppingCart = shoppingCart.filter((x) => x.id !== selectedItem.id);
-//   generateCartItems();
-//   TotalCartAmount();
-//   totalItemsInCart();
-//   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
-// };
 
 let TotalCartAmount = () => {
   if (shoppingCart.length !== 0) {
@@ -214,11 +143,13 @@ const clearCart = () => {
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
-var modal = document.getElementById("myModal");
+// Modal
 
-var btn = document.getElementById("checkoutbutton");
+const modal = document.getElementById("myModal");
 
-var span = document.getElementsByClassName("close")[0];
+const btn = document.getElementById("checkoutbutton");
+
+const span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
   modal.style.display = "block";
