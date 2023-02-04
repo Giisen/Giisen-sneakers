@@ -70,6 +70,9 @@ for (const prod of proddata) {
   cardText.classList.add("card-text");
   cardPrice.classList.add("card-price");
   cardfooter.classList.add("card-footer", "fw-light");
+  cardImg.style.width = "220px";
+  cardImg.style.height = "220px";
+  cardImg.alt = "${id.name}";
 
   // innehåll i element
 

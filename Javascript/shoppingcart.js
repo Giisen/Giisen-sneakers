@@ -43,6 +43,9 @@ function generateCart() {
     cardItems.classList.add("card-footer");
     cardAdd.classList.add("card-footer");
     cardRemove.classList.add("card-footer");
+    cardImg.style.width = "220px";
+    cardImg.style.height = "220px";
+    cardImg.alt = "${id.name}";
 
     // innehåll i element
 
