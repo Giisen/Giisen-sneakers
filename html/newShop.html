@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>shoping cart</title>
+    <title>shoppen</title>
 
     <meta charset="utf-8" />
     <meta
@@ -30,10 +30,9 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="/Javascript/Data.js"></script>
-    <script defer src="/Javascript/shoppingcart.js"></script>
-    <link rel="stylesheet" href="/css/shoppingcart.css" />
+    <script defer src="/Javascript/newShop.js"></script>
+    <link rel="stylesheet" href="/css/newShop.css" />
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -53,41 +52,49 @@
           <div class="navbar-nav">
             <a class="nav-link" aria-current="page" href="/index.html">Home</a>
             <a class="nav-link" href="/html/blaj.html">Shop</a>
-            <a class="nav-link" href="/html/newShop.html">New Shop</a>
-            <a class="nav-link active fw-bold" href="/html/shoppingcart.html"
-              >Cart</a
-            >
+            <a class="nav-link active fw-bold" href="/html/API.html">Shop</a>
+            <a class="nav-link" href="/html/shoppingcart.html">Cart</a>
             <a class="nav-link" href="/html/about.html">About us</a>
           </div>
         </div>
       </div>
-      <a class="nav-link text-info fw-bold cartAmount" id="cartAmount">0</a>
+      <a
+        class="nav-link text-info fw-bold cartAmount"
+        id="cartAmount"
+        href="/html/shoppingcart.html"
+        >0</a
+      >
     </nav>
 
     <main>
-      <div class="container mt-4">
-        <div class="row text-center">
-          <div class="col-3"></div>
-
-          <div class="col-6">
-            <ul id="products" class="list-group"></ul>
+      <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-3">
+            <p id="welcome-text">
+              Welcome to Giisen sneakers store, what´s your taste?
+            </p>
           </div>
+          <div class="col-2 fw-bold text-start">
+            <div class="shadow-lg p-3 mb-5 mt-5 rounded">
+              <p id="Weather-based-text"></p>
+            </div>
+            <div class="shadow-lg p-3 mb-5 mt-5 rounded">
+              <ul id="products" class="list-group"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-2"></div>
 
           <div class="col-3"></div>
         </div>
       </div>
     </main>
 
-    <div id="label" class="text-center"></div>
-    <div id="shopping-cart" class="shopping-cart"></div>
-
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>
-          Thank's, you are a legend!<br /><br /><br />
-          <a class="HomeButton" href="/index.html">Home</a>
-        </p>
+        <div id="modal-text"></div>
       </div>
     </div>
   </body>
