@@ -3,8 +3,9 @@ const modal = document.getElementById("myModal");
 const apilist = document.querySelector("#Weather-based-text");
 
 async function getAPI() {
+  // 57.71, 11.72;
   const url = new URL(
-    "https://api.open-meteo.com/v1/forecast?latitude=61.71&longitude=12.72&current_weather=true&timezone=auto&daily=sunrise,sunset,snowfall_sum"
+    "https://api.open-meteo.com/v1/forecast?latitude=61.71&longitude=12.72&current_weather=true&timezone=auto&daily=snowfall_sum"
   );
 
   const response = await fetch(url);
@@ -40,10 +41,13 @@ async function getAPI() {
 }
 getAPI();
 
-// 57.71, 11.72;
-
 let proddata = shopItemsData;
-const prodlist = document.querySelector("#products");
+let prodlist = document.querySelector("#products");
+
+function clearFilter() {
+  prodlist.replaceChildren();
+  filterSneakers(0.0);
+}
 
 function filterSneakers(cm) {
   if (cm < 0.1) {
@@ -117,6 +121,7 @@ let addOneItem = (id) => {
   }
 
   update(selectedItem.id);
+  
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
@@ -136,8 +141,15 @@ let removeOneItem = (id) => {
 };
 
 let update = (id) => {
+  
   let search = shoppingCart.find((x) => x.id == id);
-  document.getElementById(id).innerHTML = search.item;
+  if (search === undefined)
+  {
+    return;
+  }
+  else {
+        document.getElementById(id).innerHTML = search.item;
+  }
   totalItemsInCart();
 };
 
@@ -195,4 +207,8 @@ function getItemInfo(id) {
 
       </div>
     `;
+ 
+    update(id)
+  
+  
 }

@@ -30,8 +30,8 @@ function generateCart() {
     const cardPrice = document.createElement("div");
     const cardfooter = document.createElement("div");
     const cardItems = document.createElement("div");
-    const cardAdd = document.createElement("div");
-    const cardRemove = document.createElement("div");
+    const cardAdd = document.createElement("btn");
+    const cardRemove = document.createElement("btn");
 
     //Styla Element
     card.classList.add("card", "mb-2", "cursor-pointer");
@@ -40,9 +40,9 @@ function generateCart() {
     cardText.classList.add("card-text");
     cardPrice.classList.add("card-price");
     cardfooter.classList.add("card-footer", "fw-bold");
-    cardItems.classList.add("card-footer");
-    cardAdd.classList.add("card-footer");
-    cardRemove.classList.add("card-footer");
+    cardItems.classList.add("fw-bold");
+    cardAdd.classList.add("btn", "btn-outline-primary", "fw-bolder");
+    cardRemove.classList.add("btn", "btn-outline-primary", "fw-bolder");
     cardImg.style.width = "220px";
     cardImg.style.height = "220px";
     cardImg.alt = "${id.name}";

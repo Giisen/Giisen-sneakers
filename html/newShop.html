@@ -70,13 +70,21 @@
       <div class="container-fluid mt-4">
         <div class="row">
           <div class="col-3">
-            <p id="welcome-text">
-              Welcome to Giisen sneakers store, what´s your taste?
-            </p>
+            <h1 id="welcome-text">
+              Welcome to Giisen sneaker store, what´s your taste?
+            </h1>
           </div>
           <div class="col-2 fw-bold text-start">
             <div class="shadow-lg p-3 mb-5 mt-5 rounded">
+              <h4 id="header-shop-text">Filter based on last weeks snowfall</h4>
               <p id="Weather-based-text"></p>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                onclick="clearFilter()"
+              >
+                Show all sneakers
+              </button>
             </div>
             <div class="shadow-lg p-3 mb-5 mt-5 rounded">
               <ul id="products" class="list-group"></ul>
