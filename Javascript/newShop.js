@@ -73,6 +73,7 @@ function filterSneakers(cm) {
     cardfooter.classList.add("card-footer", "fw-light");
     cardImg.style.width = "100%";
     cardImg.style.height = "100%";
+    cardImg.style.borderRadius = "15px";
     cardImg.alt = "${id.name}";
 
     // innehåll i element
@@ -141,10 +142,13 @@ let update = (id) => {
   totalItemsInCart();
 };
 
-let totalItemsInCart = () => {
+const totalItemsInCart = () => {
   let cartTotal = document.getElementById("cartAmount");
-  cartTotal.innerHTML =
-    "Items" + " " + shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0);
+  const cartitems = shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0);
+  cartTotal.innerHTML = `
+  <a>${cartitems}</a>
+  <i class="bi bi-cart2"></i>
+  `;
 };
 totalItemsInCart();
 
