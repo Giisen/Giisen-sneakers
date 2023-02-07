@@ -7,80 +7,82 @@ let shoppingCart = JSON.parse(localStorage.getItem("localStorageData")) || [];
 
 const totalItemsInCart = () => {
   let cartTotal = document.getElementById("cartAmount");
-  cartTotal.innerHTML =
-    "Items" + " " + shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0);
+  const cartitems = shoppingCart.map((x) => x.item).reduce((x, y) => x + y, 0);
+  cartTotal.innerHTML = `
+  <a>${cartitems}</a>
+  <i class="bi bi-cart2"></i>
+  `;
 };
 
 totalItemsInCart();
 
 function generateCart() {
-  console.log(shoppingCart);
-  
-
   for (const prod of shoppingCart) {
-    //Skapa element
-    const card = document.createElement("li");
-    const cardId = prod.id;
-    const cardheader = document.createElement("div");
-    const cardbody = document.createElement("div");
-    const cardImg = document.createElement("img");
-    const cardText = document.createElement("div");
-    const cardPrice = document.createElement("div");
-    const cardfooter = document.createElement("div");
-    const cardItems = document.createElement("div");
-    const cardAdd = document.createElement("btn");
-    const cardRemove = document.createElement("btn");
+    if (prod.item > 0) {
+      //Skapa element
+      const card = document.createElement("li");
+      const cardId = prod.id;
+      const cardheader = document.createElement("div");
+      const cardbody = document.createElement("div");
+      const cardImg = document.createElement("img");
+      const cardText = document.createElement("div");
+      const cardPrice = document.createElement("div");
+      const cardfooter = document.createElement("div");
+      const cardItems = document.createElement("div");
+      const cardAdd = document.createElement("btn");
+      const cardRemove = document.createElement("btn");
 
-    //Styla Element
-    card.classList.add("card", "mb-5", "cursor-pointer");
-    cardheader.classList.add("card-header", "bg-info", "fw-bold");
-    cardbody.classList.add("card-body");
-    cardText.classList.add("card-text");
-    cardPrice.classList.add("card-price", "border", "rounded-pill");
-    cardfooter.classList.add("card-footer", "fw-bold");
-    cardItems.classList.add("fw-bold");
-    cardAdd.classList.add(
-      "btn",
-      "btn-lg",
-      "btn-outline-primary",
-      "fw-bolder",
-      "mb-2"
-    );
-    cardRemove.classList.add(
-      "btn",
-      "btn-lg",
-      "btn-outline-primary",
-      "fw-bolder"
-    );
-    cardImg.style.width = "220px";
-    cardImg.style.height = "220px";
-    cardImg.alt = "${id.name}";
+      //Styla Element
+      card.classList.add("card", "mb-5", "cursor-pointer", "shadow-lg");
+      cardheader.classList.add("card-header", "bg-info", "fw-bold");
+      cardbody.classList.add("card-body");
+      cardText.classList.add("card-text");
+      cardPrice.classList.add("card-price", "border", "rounded-pill");
+      cardfooter.classList.add("card-footer", "fw-bold");
+      cardItems.classList.add("fw-bold");
+      cardAdd.classList.add(
+        "btn",
+        "btn-lg",
+        "btn-outline-primary",
+        "fw-bolder",
+        "mb-2"
+      );
+      cardRemove.classList.add(
+        "btn",
+        "btn-lg",
+        "btn-outline-primary",
+        "fw-bolder"
+      );
+      cardImg.style.width = "220px";
+      cardImg.style.height = "220px";
+      cardImg.alt = "${id.name}";
 
-    // innehåll i element
+      // innehåll i element
 
-    cardheader.innerText = prod.name;
-    cardPrice.innerText =
-      "Total item cost: " + prod.price * prod.item + " " + "kr";
-    cardImg.src = prod.img;
-    cardItems.innerText = prod.item + " " + "st";
-    cardAdd.innerText = "+";
-    cardRemove.innerText = "-";
+      cardheader.innerText = prod.name;
+      cardPrice.innerText =
+        "Total item cost: " + prod.price * prod.item + " " + "kr";
+      cardImg.src = prod.img;
+      cardItems.innerText = prod.item + " " + "st";
+      cardAdd.innerText = "+";
+      cardRemove.innerText = "-";
 
-    //sätta event på element
-    cardAdd.onclick = () => {
-      addOneItem(prod.id);
-    };
+      //sätta event på element
+      cardAdd.onclick = () => {
+        addOneItem(prod.id);
+      };
 
-    cardRemove.onclick = () => {
-      removeOneItem(prod.id);
-    };
+      cardRemove.onclick = () => {
+        removeOneItem(prod.id);
+      };
 
-    //Lägg till element i dom
-    cardheader.append(cardPrice);
-    cardfooter.append(cardRemove, cardItems, cardAdd, cardPrice);
-    cardbody.append(cardImg);
-    card.append(cardheader, cardbody, cardfooter);
-    prodlist.append(card);
+      //Lägg till element i dom
+      cardheader.append(cardPrice);
+      cardfooter.append(cardAdd, cardItems, cardRemove, cardPrice);
+      cardbody.append(cardImg);
+      card.append(cardheader, cardbody, cardfooter);
+      prodlist.append(card);
+    }
   }
 }
 generateCart();
@@ -161,7 +163,7 @@ const span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
   modal.style.display = "block";
-
+  console.log("what");
   clearCart();
 };
 

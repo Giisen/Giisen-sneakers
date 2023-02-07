@@ -1,125 +1,29 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 
-/* body {
-    font-family: sans-serif;
-background-color: rgb(194, 194, 194);
-} */
-
-/* .item {
-    cursor: pointer;
-} */
-
-/* .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 60px;
-    margin-bottom: 30px;
-    height: 80px;
-    background-color: rgb(194, 194, 194);
-    font-family: 'Segoe UI';
-    border-radius: 5px;
-
-} */
-
-
-/* @media (max-width:500px) {
-    .navbar {
-        grid-template-rows: repeat(1, 225px);
-    }
-} */
-
-/* .menu {
-    font-size: 30px;
-    display: flex;
-    flex-direction: row;
-
-}
-
-ul {
-    list-style-type: none;
-    overflow: hidden;
-    cursor: pointer;
-    display: inline;
-}
-
-a {
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-
-.navbar a:hover:not(.active) {
-    background-color: #99D98C;
-    color: white;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.navbar a.active {
-    background-color: #52B69A;
-    color: white;
-    border-radius: 5px;
-    padding: 5px;
-} */
-
-/* .cart {
-    position: relative;
-    font-size: 30px;
-    padding: 3px;
-    background-color: aquamarine;
-    border-radius: 5px;
-    cursor: pointer;
-} */
-
-/* .cartAmount {
-    position: absolute;
-    top: -15px;
-    right: -10px;
-    font-size: 20px;
-    background-color: rgb(247, 167, 230);
-    border-radius: 5px;
-    padding: 3px;
-} */
 
 .text-center{
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* .HomeButton{
-    background-color: #99D98C;
-    color: white;
-    font-size: xx-large;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: pointer;
-} */
 
-.shopping-cart{
+
+/* .shopping-cart{
     display: grid;
     grid-template-columns: repeat(1,320px);
     justify-content: center;
     gap: 15px;
 
-}
+} */
 
-.cart-item{
+/* .cart-item{
     border: 4px solid #24b2dd;
     border-radius: 5px;
     display: flex;
     width: 350px;
     padding: 10px;
-}
+} */
 
-.title-price-x{
+/* .title-price-x{
     width: 225px;
     padding: 10px;
     display: flex;
@@ -151,7 +55,7 @@ a {
 
 .card-totalprice{
     padding: 10px;
-}
+} */
 
 .checkoutbutton{
         background-color: #99D98C;
@@ -217,4 +121,19 @@ a {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* #cartAmount{
+    cursor: pointer;
+    margin-bottom: -10px;
+} */
+
+/* #cartIcon {
+    cursor: pointer;
+    margin-top: 0;
+    font-size: 55px;
+} */
+.classIconAndAmount{
+    cursor: pointer;
+    padding: 0;
 }
