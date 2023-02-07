@@ -15,6 +15,7 @@ totalItemsInCart();
 
 function generateCart() {
   console.log(shoppingCart);
+  
 
   for (const prod of shoppingCart) {
     //Skapa element
@@ -121,10 +122,10 @@ let removeOneItem = (id) => {
   let cartlist = document.querySelector("#products");
   cartlist.replaceChildren();
 
-  generateCart();
   totalItemsInCart();
   TotalCartAmount();
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
+  generateCart();
 };
 
 let TotalCartAmount = () => {
