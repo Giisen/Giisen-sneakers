@@ -14,15 +14,12 @@ const totalItemsInCart = () => {
 totalItemsInCart();
 
 function generateCart() {
-  // while (shoppingCart.length > 0) {
-  //   shoppingCart.children[0].remove();
-  // }
-
-  console.log(shoppingCart.children);
+  console.log(shoppingCart);
 
   for (const prod of shoppingCart) {
     //Skapa element
     const card = document.createElement("li");
+    const cardId = prod.id;
     const cardheader = document.createElement("div");
     const cardbody = document.createElement("div");
     const cardImg = document.createElement("img");
@@ -34,15 +31,26 @@ function generateCart() {
     const cardRemove = document.createElement("btn");
 
     //Styla Element
-    card.classList.add("card", "mb-2", "cursor-pointer");
+    card.classList.add("card", "mb-5", "cursor-pointer");
     cardheader.classList.add("card-header", "bg-info", "fw-bold");
     cardbody.classList.add("card-body");
     cardText.classList.add("card-text");
-    cardPrice.classList.add("card-price");
+    cardPrice.classList.add("card-price", "border", "rounded-pill");
     cardfooter.classList.add("card-footer", "fw-bold");
     cardItems.classList.add("fw-bold");
-    cardAdd.classList.add("btn", "btn-outline-primary", "fw-bolder");
-    cardRemove.classList.add("btn", "btn-outline-primary", "fw-bolder");
+    cardAdd.classList.add(
+      "btn",
+      "btn-lg",
+      "btn-outline-primary",
+      "fw-bolder",
+      "mb-2"
+    );
+    cardRemove.classList.add(
+      "btn",
+      "btn-lg",
+      "btn-outline-primary",
+      "fw-bolder"
+    );
     cardImg.style.width = "220px";
     cardImg.style.height = "220px";
     cardImg.alt = "${id.name}";
@@ -91,8 +99,12 @@ let addOneItem = (id) => {
   } else {
     search.item += 1;
   }
-  update(selectedItem);
+  let cartlist = document.querySelector("#products");
+  cartlist.replaceChildren();
+
   generateCart();
+  totalItemsInCart();
+  TotalCartAmount();
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
@@ -106,18 +118,13 @@ let removeOneItem = (id) => {
     search.item -= 1;
   }
 
-  update(selectedItem);
-  shoppingCart = shoppingCart.filter((x) => x.item !== 0);
-  console.log(selectedItem);
-  localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
-};
+  let cartlist = document.querySelector("#products");
+  cartlist.replaceChildren();
 
-const update = (id) => {
-  let search = shoppingCart.find((x) => x.id == id);
-  location.reload();
-  //document.getElementById(search.id).innerHTML = search.item;
+  generateCart();
   totalItemsInCart();
   TotalCartAmount();
+  localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
 let TotalCartAmount = () => {
@@ -131,7 +138,7 @@ let TotalCartAmount = () => {
       .reduce((x, y) => x + y, 0);
     label.innerHTML = `
         <h2>Total cost: ${amount} kr</h2>
-        <button id="checkoutbutton" class="checkoutbutton">Checkout</button>
+        <button id="checkoutbutton" class="btn btn-outline-primary">Checkout</button>
         `;
   } else {
     return;
@@ -139,23 +146,21 @@ let TotalCartAmount = () => {
 };
 TotalCartAmount();
 
-const clearCart = () => {
-  shoppingCart = [];
-  generateCartItems();
-  totalItemsInCart();
-  localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
-};
+function clearCart() {
+  let cartlist = document.querySelector("#products");
+  cartlist.replaceChildren();
+  console.log(cartlist);
+  localStorage.clear();
+}
 
-// Modal
-
+// Modal ckeckout
 const modal = document.getElementById("myModal");
-
 const btn = document.getElementById("checkoutbutton");
-
 const span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
   modal.style.display = "block";
+
   clearCart();
 };
 

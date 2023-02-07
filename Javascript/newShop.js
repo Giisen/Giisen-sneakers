@@ -21,22 +21,14 @@ async function getAPI() {
     const cardText = document.createElement("div");
     cardText.innerText = totalSnow;
     if (totalSnow < 0.1) {
-      cardText.innerText = `Barely any snow this week (${totalSnow} cm), any sneaker will do!`;
+      cardText.innerText = `Barely any snow this week (less then 1cm), any sneaker will do!`;
     } else if (totalSnow < 10.0) {
-      cardText.innerText = `Only some light snow this week (${totalSnow} cm), we recommend these sneakers`;
+      cardText.innerText = `Only some light snow this week (less then 10cm), we recommend these sneakers`;
     } else {
-      cardText.innerText = `There has been some snow this week (${totalSnow} cm), but what the hell, sneakers can be worn year round, espacially these`;
+      cardText.innerText = `There has been some snow this week (more then 10cm), but what the hell, sneakers can be worn year round, espacially these`;
     }
 
     apilist.append(cardText);
-
-    console.log(url);
-    console.log("Här bryter jag");
-    console.log(jsonResponse);
-    console.log("Här bryter jag igen");
-    console.log(jsonResponse.current_weather.temperature);
-    console.log(jsonResponse.daily.snowfall_sum);
-    console.log(totalSnow);
   }
 }
 getAPI();
@@ -73,18 +65,17 @@ function filterSneakers(cm) {
     const cardfooter = document.createElement("div");
 
     //Styla Element
-    card.classList.add("card", "mb-2", "cursor-pointer");
-    cardheader.classList.add("card-header", "bg-info", "fw-bold");
+    card.classList.add("card", "mb-4", "cursor-pointer");
+    cardheader.classList.add("card-header", "fw-bold");
     cardbody.classList.add("card-body");
     cardText.classList.add("card-text");
     cardPrice.classList.add("card-price");
     cardfooter.classList.add("card-footer", "fw-light");
-    cardImg.style.width = "220px";
-    cardImg.style.height = "220px";
+    cardImg.style.width = "100%";
+    cardImg.style.height = "100%";
     cardImg.alt = "${id.name}";
 
     // innehåll i element
-
     cardheader.innerText = prod.name;
     cardPrice.innerText = prod.price + " " + "kr";
     cardImg.src = prod.img;
@@ -121,7 +112,7 @@ let addOneItem = (id) => {
   }
 
   update(selectedItem.id);
-  
+
   localStorage.setItem("localStorageData", JSON.stringify(shoppingCart));
 };
 
@@ -141,14 +132,11 @@ let removeOneItem = (id) => {
 };
 
 let update = (id) => {
-  
   let search = shoppingCart.find((x) => x.id == id);
-  if (search === undefined)
-  {
+  if (search === undefined) {
     return;
-  }
-  else {
-        document.getElementById(id).innerHTML = search.item;
+  } else {
+    document.getElementById(id).innerHTML = search.item;
   }
   totalItemsInCart();
 };
@@ -207,8 +195,6 @@ function getItemInfo(id) {
 
       </div>
     `;
- 
-    update(id)
-  
-  
+
+  update(id);
 }
