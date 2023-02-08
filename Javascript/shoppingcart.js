@@ -33,7 +33,12 @@ function generateCart() {
       const cardRemove = document.createElement("btn");
 
       //Styla Element
-      card.classList.add("card", "mb-5", "cursor-pointer", "shadow-lg");
+      card.classList.add(
+        "card",
+        "mb-5",
+        "cursor-pointer",
+        "shadow-lg"
+      );
       cardheader.classList.add("card-header", "bg-info", "fw-bold");
       cardbody.classList.add("card-body");
       cardText.classList.add("card-text");
